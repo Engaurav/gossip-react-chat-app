@@ -1,0 +1,14 @@
+.navbar{
+    background-color: #0e0d37;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.avatar{
+    border-radius: 50%;
+    overflow: auto;
+    border: solid #fcd899;
+}
