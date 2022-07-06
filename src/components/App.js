@@ -4,6 +4,8 @@ import Navbar from "./Navbar";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import { ToastContainer } from 'react-toastify';
+
 
 class App extends Component {
   render() {
@@ -18,6 +20,17 @@ class App extends Component {
             <Route exact path="/register" element ={<Register /> }/>
           </Routes>
         </Router>
+        <ToastContainer
+          position="top-right"
+          autoClose={1500}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     );
   }
