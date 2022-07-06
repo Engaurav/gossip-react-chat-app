@@ -1,14 +1,17 @@
-import React, { Component } from "react";
 import ChatContainer from "./ChatContainer";
 import Navbar from "./Navbar";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import { ToastContainer } from 'react-toastify';
+import { useAuth } from "../hooks";
 
 
-class App extends Component {
-  render() {
+
+const App = ()=>{
+  
+    const auth = useAuth();
+    console.log(auth);
     return (
       <div className="App">
         <Router>
@@ -33,7 +36,7 @@ class App extends Component {
         />
       </div>
     );
-  }
+  
 }
 
 export default App;

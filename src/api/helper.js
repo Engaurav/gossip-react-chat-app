@@ -10,3 +10,25 @@ export const getFormBody = (body) => {
     return formBody.join('&'); // 'username=aakash&password=123213'
 
 }
+
+export const setItemInLocalStorage = (key,value) =>{
+    if(!key || !value){
+      return console.log("Can't stor in local storage");
+    }
+    const valueToStore = typeof value !== 'string' ? JSON.stringify(value): value;
+    localStorage.setItem(key,valueToStore);
+  }
+  
+  export const getItemFromLocalStorage = (key) =>{
+    if(!key ){
+      return console.log("Can't find key in local storage");
+    }
+    return localStorage.getItem(key);
+  }
+  
+  export const removeItemFromLocalStorage = (key) =>{
+    if(!key ){
+      return console.log("Can't find key in local storage");
+    }
+    localStorage.removeItem(key);
+  }

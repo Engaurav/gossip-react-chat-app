@@ -12,3 +12,45 @@
     overflow: auto;
     border: solid #fcd899;
 }
+.avatar img{
+   cursor: pointer;
+}
+
+.dropdowncontainer {
+    background-color: #fcd899;
+}
+
+.dropdown {
+    background: #c9db77;
+    height: 32px;
+    width: 80px;
+    top: 87px;
+    position: absolute;
+    border-left: solid 6px;
+    right: 0;
+}
+
+
+
+.dropdown button {
+    background: none;
+    border: none;
+    color: #1c1c28;
+    font-size: larger;
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+}
+
+
+.dropdown button::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    border-width: 5px;
+    border-style: solid;
+    left: 50%;
+    margin-left: -5px;
+    border-color: transparent transparent #c9db77 transparent;
+    top: -10px;
+}

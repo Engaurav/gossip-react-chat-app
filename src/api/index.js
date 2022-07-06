@@ -22,7 +22,6 @@ const customFetch = async (url, { body, ...customConfig }) => {
         ...customConfig.headers,
       },
     };
-    console.log("Body",body)
     if (body) {
       config.body =getFormBody(body);
     }
@@ -46,7 +45,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
 
 
 
-export const login =  (email,password) => {
+export const userLogin =  (email,password) => {
  
     return customFetch(loginApi,{
         method : 'POST',
