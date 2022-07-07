@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { userRegister } from "../api";
+import { useAuth } from "../hooks";
 
 
 const Register = () =>  {
@@ -13,6 +14,14 @@ const Register = () =>  {
   const [confirm_password,setConfirmPassword] = useState('');
   const [signing,setSigning] = useState(false);
   const navigate = useNavigate();
+  const auth = useAuth();
+
+  if (auth.user) {
+    toast.warning("Please Logout..!", {
+      toastId: "#1234",
+    });
+    navigate("/", { replace: true });
+  }
 
 
   const hanfleRegisterForm = async (e) => {
