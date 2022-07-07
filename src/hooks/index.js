@@ -2,11 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { userLogin } from "../api";
 import { AuthContext } from "../provider/AuthProvider";
 import jwt_decode from "jwt-decode";
-
-
-
 import {
-    getItemFromLocalStorage,
+  getItemFromLocalStorage,
   removeItemFromLocalStorage,
   setItemInLocalStorage,
 } from "../api/helper";
@@ -54,7 +51,6 @@ export const useProvideAuth = () => {
   const logout = () => {
     removeItemFromLocalStorage(LOCALSTORAGE_TOKEN_KEY);
     setUser(null);
-    
   };
   return {
     user,

@@ -1,3 +1,58 @@
-.Profile{
-    color: yellow;
+.Profile {
+  color: white;
+}
+
+#profile_bar {
+  display: flex;
+  background: #303050;
+}
+
+#profile_back {
+margin-left: 5px;
+}
+#profile_back button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 4px;
+}
+#profile_bar_title{
+    margin-left: 10px;
+    font-size: xx-large;
+}
+
+.profile_pic {
+  text-align: center;
+}
+.profile_pic div {
+  display: inline-block;
+  margin-top: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+
+#profile_name {
+  margin: 5px;
+  margin-top: 30px;
+}
+#profile_name_title {
+  color: #fcd899;
+}
+#profile_name_v {
+  font-size: x-large;
+}
+
+.profile_info {
+  margin: 5px;
+  margin-top: 30px;
+}
+.profile_info_title {
+  color: #fcd899;
+  font-size: larger;
+}
+.profile_info_v {
+  font-size: large;
 }
