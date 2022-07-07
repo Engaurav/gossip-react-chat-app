@@ -1,0 +1,36 @@
+.friendContainer{
+    height: 70px;
+    color: white;
+    margin: 5px 0px;
+    display: flex;
+    cursor: pointer;
+}
+.friendContainer:hover{
+    background: #0a0a23;
+}
+.friendImageContainer{
+    text-align: center;
+    margin-left: 10px;
+}
+.friendImage{
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 50px;
+    border: solid #232248;
+    height: 50px;
+    margin-top: 7px;
+}
+.friendImage img {
+    width: 55px;
+}
+
+
+.friendName{
+    font-size: x-large;
+    color: white;
+    margin-left: 10px;
+    width: 74%;
+    padding-top: 10px;
+    border-bottom: solid 1px gray;
+}
