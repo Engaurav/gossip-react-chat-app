@@ -4,14 +4,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import { ToastContainer } from 'react-toastify';
-import { useAuth } from "../hooks";
+import "react-toastify/dist/ReactToastify.css";
 
 
 
 const App = ()=>{
   
-    const auth = useAuth();
-    console.log(auth);
+    
     return (
       <div className="App">
         <Router>

@@ -1,6 +1,6 @@
 // import { loginApi } from "./constants"
 
-import { LOCALSTORAGE_TOKEN_KEY, loginApi } from "./constants";
+import { LOCALSTORAGE_TOKEN_KEY, loginApi, registerApi } from "./constants";
 import { getFormBody } from "./helper";
 
 
@@ -53,6 +53,13 @@ export const userLogin =  (email,password) => {
              email,password
         }
     })
+}
+
+export const userRegister = (body) => {
+  return customFetch(registerApi,{
+    method : 'POST',
+    body
+  })
 }
 
 
