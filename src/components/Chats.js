@@ -3,10 +3,12 @@ import avatar from "../avatars/avatar-1.jpg";
 import { useState } from "react";
 import Profile from "./Profile"
 import FriendList from "./FriendList";
+import SearchFriends from "./SearchFriends";
 
 
 const Chats = () => {
     const [showProfile,setShowProfile] = useState(false);
+    const [showSearch,setShowSearch] = useState(false);
     const [showChats,setShowChats] = useState(true);
 
     // handle proofile function
@@ -19,6 +21,15 @@ const Chats = () => {
         setShowProfile(true);
       }
     }
+    const handleSearch = () => {
+      if(showSearch){
+        setShowChats(true);
+        setShowSearch(false);
+      }else{
+        setShowChats(false);
+        setShowSearch(true);
+      }
+    }
 
     return <div className={styles.Chats}>
       
@@ -27,10 +38,10 @@ const Chats = () => {
           <>
             <div className={styles.profile_container}>
               <div className={styles.profile_div}>
-                <button><img src={avatar} alt="Profile" width="40px" onClick={handleProfile}></img></button>
+                <button onClick={handleProfile}><img src={avatar} alt="Profile" width="40px" ></img></button>
               </div>
               <div className={styles.addFriend}>
-                <button><img src="https://cdn-icons-png.flaticon.com/512/2583/2583145.png" alt="Add Friend" width="25px"></img></button>
+                <button onClick={handleSearch}><img src="https://cdn-icons-png.flaticon.com/512/2583/2583145.png" alt="Add Friend" width="25px"></img></button>
               </div>
             </div> 
             <FriendList/>
@@ -38,7 +49,7 @@ const Chats = () => {
         : "" }
 
         { showProfile ? <Profile handleProfileClose = {handleProfile}/> : "" }
-
+        { showSearch ? <SearchFriends handleSearchClose = {handleSearch}/> : ""}  
 
     </div>;
   }

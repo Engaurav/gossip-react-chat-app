@@ -1,0 +1,62 @@
+.searchContainer{
+    height: 70px;
+    color: white;
+    margin: 5px 0px;
+    display: flex;
+}
+.userImageContainer{
+    text-align: center;
+    margin-left: 10px;
+}
+.userImage{
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 50px;
+    border: solid #232248;
+    height: 50px;
+    margin-top: 7px;
+}
+.userImage img {
+    width: 55px;
+}
+
+
+.userDetail{
+    font-size: x-large;
+    color: white;
+    margin-left: 10px;
+    width: 74%;
+    padding-top: 5px;
+    border-bottom: solid 1px gray;
+    display: flex;
+    flex-direction: column;
+}
+.userEmail{
+    font-size: small;
+}
+.userFreindship{
+    border-bottom: solid 1px gray;
+    margin-right: 10px;
+
+}
+.userFreindship button{
+    border: none;
+    width: max-content;
+    border-radius: 10px;
+    color: white;
+    font-size: 13px;
+    margin-top: 25%;
+    cursor: pointer;
+    padding: 6px;
+    transition: ease-in-out 0.5s;
+}
+.userFreindship button:hover{
+    transform: scale(1.1);
+}
+.addFriend{
+    background: #2f32bf;
+}
+.removeFriend{
+    background: #b10707;
+}

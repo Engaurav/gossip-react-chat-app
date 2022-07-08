@@ -3,6 +3,7 @@ import Chatbox from "./Chatbox";
 import Chats from "./Chats";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks";
+import FriendRequest from './FriendRequest';
 
 
 const ChatContainer = () => {
@@ -18,6 +19,7 @@ const ChatContainer = () => {
       <div className={styles.ChatContainer}>
         <Chats />
         <Chatbox />
+        <FriendRequest/>
       </div>
     );
   

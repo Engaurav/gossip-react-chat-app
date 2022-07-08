@@ -1,0 +1,36 @@
+.SearchFriend{
+    color: white;
+}
+.SearchInput{
+    margin-top: 10px;
+    text-align: center;
+}
+.SearchInput input{
+    width: 85%;
+    height: 25px;
+}
+
+
+#search_bar {
+    display: flex;
+    background: #303050;
+  }
+  
+  #search_back {
+  margin-left: 5px;
+  }
+  #search_back button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-top: 4px;
+  }
+  #search_bar_title{
+      margin-left: 10px;
+      font-size: xx-large;
+  }
+
+  .noResult{
+    margin: 22px;
+    font-size: larger;
+  }

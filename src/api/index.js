@@ -1,6 +1,6 @@
 // import { loginApi } from "./constants"
 
-import { LOCALSTORAGE_TOKEN_KEY, loginApi, registerApi } from "./constants";
+import { friendRequestDeleteApi, friendRequestSendApi, friendRequestShowApi, LOCALSTORAGE_TOKEN_KEY, loginApi, registerApi, searchApi } from "./constants";
 import { getFormBody } from "./helper";
 
 
@@ -62,5 +62,30 @@ export const userRegister = (body) => {
   })
 }
 
+export const searchFriends = (search) =>{
+  return customFetch(`${searchApi}/${search}`,{
+    method : 'GET'
+  });
+}
+
+export const handleFriendSendRequest = (body) => {
+  return customFetch(friendRequestSendApi,{
+    method: 'POST',
+    body
+  })
+}
+
+export const handleFriendShowRequest = (body) => {
+  return customFetch(friendRequestShowApi,{
+    method: 'POST',
+    body
+  })
+}
+export const handleFriendDeleteRequest = (id) => {
+  console.log(id);
+  return customFetch(`${friendRequestDeleteApi}/${id}`,{
+    method: 'DELETE',
+  })
+}
 
 
