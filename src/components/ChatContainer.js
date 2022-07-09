@@ -10,16 +10,15 @@ const ChatContainer = () => {
 
     const auth = useAuth();
     const navigate = useNavigate();
-    console.log(auth);
     if(!auth.user){
       navigate("/login", { replace: true });
     }
 
     return (
       <div className={styles.ChatContainer}>
-        <Chats />
+        {/* <Chats /> */}
         <Chatbox />
-        <FriendRequest/>
+        {/* <FriendRequest/> */}
       </div>
     );
   

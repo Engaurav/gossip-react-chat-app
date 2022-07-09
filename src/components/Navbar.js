@@ -21,12 +21,7 @@ const Navbar = () => {
   };
 
   return (
-    <div
-      className={styles.navbar}
-      onMouseLeave={() => {
-        setDropdown(false);
-      }}
-    >
+    <div className={styles.navbar}>
       <div>
         <img src={logo} alt="Logo" width="250px" />
       </div>
@@ -44,16 +39,19 @@ const Navbar = () => {
       ) : (
         ""
       )}
+
       {dropdown ? (
-        <div
-          className={styles.dropdown}
-          onMouseOut={() => {
-            setDropdown(false);
-          }}
-        >
-          <button onClick={handleLogout}>Logout</button>
+        <div className={styles.dropdowncontainer} onMouseLeave={()=>{setDropdown(false)}}>
+          <div className={styles.dropdown}>
+            <div>
+              <button onClick={()=>{auth.setFriendRequest(true)}}>Friend Request</button>
+            </div>
+            <div>
+              <button onClick={handleLogout}>Logout</button>
+            </div>
+          </div>
         </div>
-      ) : (
+      ) : ( 
         ""
       )}
     </div>

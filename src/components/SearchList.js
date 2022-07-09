@@ -41,7 +41,6 @@ export default function SearchList(props) {
   }
 
   const deletingRequest = async () => {
-    console.log("id",id)
     const response = await handleFriendDeleteRequest(id);
     if(response.success){
       setFrienship(false);

@@ -17,40 +17,42 @@
 }
 
 .dropdowncontainer {
-    background-color: #fcd899;
+    position: absolute;
+    right: 0;
+    height: 171px;
+    z-index: 10;
 }
 
 .dropdown {
-    background: #c9db77;
-    height: 32px;
-    width: 80px;
-    top: 87px;
-    position: absolute;
-    border-left: solid 6px;
-    right: 0;
+    background: #c8db73;
+    margin-top: 86px;
+    padding: 5px;
 }
-
-
-
-.dropdown button {
-    background: none;
-    border: none;
-    color: #1c1c28;
-    font-size: larger;
-    position: absolute;
-    cursor: pointer;
-    right: 0;
-}
-
-
-.dropdown button::after {
+.dropdown::after {
     content: "";
     position: absolute;
     bottom: 100%;
     border-width: 5px;
     border-style: solid;
-    left: 50%;
-    margin-left: -5px;
+    left: 60%;
+    margin-top: 86px;
     border-color: transparent transparent #c9db77 transparent;
     top: -10px;
 }
+
+
+.dropdown div button {
+    border: none;
+    background: aliceblue;
+    color: #1c1c28;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.dropdown div button:hover {
+    background: #1c1c28;
+    color: aliceblue;
+}
+
+

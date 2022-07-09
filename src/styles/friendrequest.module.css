@@ -1,0 +1,102 @@
+.friendReqContainer{
+    background-color: #0e0d37;
+    width: 0px;
+    right: 0;
+    overflow: hidden;
+    position: absolute;
+    max-width: 315px;
+    border-radius: 10px;
+    margin: 10px;
+    height: 85%;
+    transition: ease-in-out;
+}
+
+.FriendRequestBar {
+    background: #26254f;
+    height: 45px;
+    padding: 7px;
+}
+.FriendRequestBar button{
+    background: none;
+    color: red;
+    float: right;
+    font-size: larger;
+    margin-right: 6px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+.FriendRequestBar h2{
+    margin-top: 12px;
+}
+.FriendRequestBar button:hover{
+    background: red;
+    color: black;
+    border: none;
+}
+
+
+/* css for user box */
+.friendRequestBox{
+    display: flex;
+    margin-top: 10px;
+    background: #504f68;
+    padding: 5px;
+    border-radius: 5px;
+}
+.friendRequestBoxImage{
+    margin-left: 5px;
+    border: solid 1px #c9db74;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 50px;
+    width: 50px;
+}
+.friendRequestBoxImage img{
+    width: 50px;
+}
+
+
+.friendRequestBoxDetail{
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.friendRequestBoxName{
+    font-size: larger;
+}
+
+.friendRequestBoxRequest{
+    margin: 5px;
+    display: flex;
+}
+.friendRequestBoxRequest div{
+    width: 64px;
+}
+.friendRequestBoxAccept button{
+    background-color: #c8db77;
+    border: none;
+    color: #26254f;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+
+}
+.friendRequestBoxAccept button:hover{
+    transform: scale(1.08);
+}
+.friendRequestBoxReject button{
+    background-color: #0e0d37;
+    border: none;
+    width: 100%;
+    color: white;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+.friendRequestBoxReject button:hover{
+    transform: scale(1.08);
+}
+
+.noRequestPending{
+    margin: 10px;
+    font-size: larger;
+    color: #c8db77;
+}

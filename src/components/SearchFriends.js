@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { searchFriends } from "../api";
+import { useAuth } from "../hooks";
 import style from "../styles/searchFriends.module.css";
 import SearchList from "./SearchList";
+
+
 export default function SearchFriends(props) {
+  const auth = useAuth();
   const [search, setSearch] = useState("");
   const [searchList,setSearchList] = useState([]);
   const handleSearchFriend = async () => {
     const response = await searchFriends(search);
     setSearchList(response.data.users);
-    console.log(searchList);
-    // console.log(response);
   };
   return (
     <div className={style.SearchFriend}>
@@ -29,14 +31,18 @@ export default function SearchFriends(props) {
         <input
           type={"search"}
           value={search}
+          placeholder="Search with Name or Email"
           onChange={(e) => {
             setSearch(e.target.value);
             handleSearchFriend();
           }}
         />
       </div>
-      { searchList ? searchList.map((user)=>{
-        return <SearchList user={user}/>
+      { searchList ? searchList.map((user,key)=>{
+        if(user._id === auth.user.id){
+          return "";
+        }
+        return <SearchList user={user} key = {key} />
       }) : <div className={style.noResult}>No Result.</div>}
     </div>
   );

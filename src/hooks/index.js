@@ -16,6 +16,7 @@ export const useAuth = () => {
 export const useProvideAuth = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [friendRequest , setFriendRequest] = useState(false);
 
   useEffect(() => {
     const userToken = getItemFromLocalStorage(LOCALSTORAGE_TOKEN_KEY);
@@ -24,7 +25,7 @@ export const useProvideAuth = () => {
       const user = jwt_decode(userToken);
       setUser(user);
     }
-
+    setFriendRequest(false);
     setLoading(false);
   }, []);
 
@@ -57,5 +58,7 @@ export const useProvideAuth = () => {
     loading,
     login,
     logout,
+    friendRequest,
+    setFriendRequest
   };
 };

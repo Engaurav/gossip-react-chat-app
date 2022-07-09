@@ -3,7 +3,8 @@ import style from '../styles/friend.module.css';
 import avatar from "../avatars/avatar-1.jpg";
 
 
-export default function Friend() {
+export default function Friend(props) {
+  const friend = props.friend;
   return (
     <div className={style.friendContainer}>
         <div className={style.friendImageContainer}>
@@ -12,7 +13,7 @@ export default function Friend() {
             </div>
         </div>
         <div className={style.friendName}>
-            Gaurav Singh
+            {friend.name}
         </div>
     </div>
   )
