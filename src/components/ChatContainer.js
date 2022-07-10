@@ -1,5 +1,4 @@
-import styles from '../styles/chatContainer.module.css'
-import Chatbox from "./Chatbox";
+import styles from '../styles/chatContainer.module.css';
 import Chats from "./Chats";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks";
@@ -16,9 +15,8 @@ const ChatContainer = () => {
 
     return (
       <div className={styles.ChatContainer}>
-        {/* <Chats /> */}
-        <Chatbox />
-        {/* <FriendRequest/> */}
+        <Chats />
+        <FriendRequest/>
       </div>
     );
   

@@ -1,3 +1,184 @@
-.Chatbox{
+.ChatboxContainer{
     color: aqua;
+    background: #0e0d37;
+    margin: 10px;
+    border-radius: 10px;
+    width: -webkit-fill-available;
+    overflow: hidden;
+}
+
+.Chatbox{
+    position: relative;
+    height: 100%;
+}
+.bar{
+    display: flex;
+    background: #26254f;
+    color: white;
+}
+.image{
+    margin: 5px;
+    border-radius: 50%;
+    height: 50px;
+    overflow: hidden;
+    margin-left: 19px;
+    width: 50px;
+}
+.image img{
+    width: 55px;
+}
+.detail{
+    display: flex;
+    justify-content: space-between;
+    width: -webkit-fill-available;
+}
+.detail h2{
+    margin: 12px;
+}
+.detail button{
+    border: none;
+    background: none;
+    margin-right: 12px;
+    border-radius: 50%;
+    height: 38px;
+    margin-top: 10px;
+    padding-top: 6px;
+    cursor: pointer;
+}
+.detail button:hover{
+    background: #0e0d37;
+}
+
+
+
+/* message box */
+.messageBox{
+    height: calc(100% - 111px);
+    width: 100%;
+    background-color: #8a89a1;
+    margin: 1px;
+}
+
+.messageBoxContainer{
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+
+    
+}
+.messageBoxContainer ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    width: 100%;
+    margin: 0;
+    max-height: 100%;
+    padding: 0;
+    overflow-x: hidden;
+/*  */
+}
+.messageBoxContainer ul li p{
+  margin: 0;
+}
+
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #26254f; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+/* scrollbar end */
+.myMessage{
+    background-color: #ea6789;
+    align-self: flex-start;
+    color: #431d27;
+    margin: 2px;
+    margin-left: 12px;
+    width: max-content;
+    padding: 7px 10px;
+    border-radius: 5px;
+    position: relative;
+}
+.myMessage::after {
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    border-width: 7px;
+    left: -13px;
+    border-style: solid;
+    margin-top: 19px;
+    border-color: transparent #ea6789 transparent transparent;
+}
+.recieve{
+    align-self: flex-end;
+    background: #c9db75;
+    color: darkslategray;
+    padding: 7px 10px;
+    border-radius: 5px;
+    margin: 6px 10px;
+    position: relative;
+}
+.recieve::after {
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    right: -12px;
+    border-width: 7px;
+    border-style: solid;
+    margin-top: 19px;
+    border-color: transparent transparent transparent #c9db77;}
+
+
+/* message box end */
+
+
+
+
+
+
+/* form */
+.form{
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    background: #26254f;
+    width: 100%;
+}
+
+.form form{
+    display: flex;
+    margin-top: 7px;
+}
+
+.form form input{
+    width: 100%;
+    margin-left: 5px;
+}
+.form form button{
+    background: none;
+    border: none;
+    margin: 0 5px;
+    height: 36px;
+    border-radius: 50%;
+    width: 36px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+.form form button:hover{
+    background: #0a0a23;
 }

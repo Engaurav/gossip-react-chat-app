@@ -3,6 +3,7 @@ import avatar from "../avatars/avatar-1.jpg";
 import { useState } from "react";
 import Profile from "./Profile"
 import FriendList from "./FriendList";
+import Chatbox from './Chatbox';
 import SearchFriends from "./SearchFriends";
 
 
@@ -31,7 +32,9 @@ const Chats = () => {
       }
     }
 
-    return <div className={styles.Chats}>
+    return (
+      <>
+      <div className={styles.Chats}>
       
         {/* Chat Section */}
         { showChats ? 
@@ -50,8 +53,10 @@ const Chats = () => {
 
         { showProfile ? <Profile handleProfileClose = {handleProfile}/> : "" }
         { showSearch ? <SearchFriends handleSearchClose = {handleSearch}/> : ""}  
-
-    </div>;
+     </div>
+     <Chatbox />
+    </>
+    )
   }
 
 

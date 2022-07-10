@@ -1,3 +1,6 @@
 .ChatContainer{
     display: flex;
+    position: absolute;
+    height: 87%;
+    width: 100%;
 }
