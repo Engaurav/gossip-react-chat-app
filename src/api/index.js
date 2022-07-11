@@ -1,6 +1,6 @@
 // import { loginApi } from "./constants"
 
-import { friendListFetchApi, friendRequestAcceptApi, friendRequestDeleteApi, friendRequestListsApi, friendRequestSendApi, friendRequestShowApi, LOCALSTORAGE_TOKEN_KEY, loginApi, registerApi, searchApi } from "./constants";
+import { friendDetailApi, friendListFetchApi, friendRequestAcceptApi, friendRequestDeleteApi, friendRequestListsApi, friendRequestSendApi, friendRequestShowApi, LOCALSTORAGE_TOKEN_KEY, loginApi, registerApi, searchApi } from "./constants";
 import { getFormBody } from "./helper";
 
 
@@ -99,6 +99,11 @@ export const handleFriendRequestAccept = (id) => {
 
 export const handleFetchFriendsLists = (id) => {
   return customFetch(`${friendListFetchApi}/${id}`,{
+    method: 'GET',
+  })
+}
+export const handleFechFriendDetail = (user,friend) => {
+  return customFetch(`${friendDetailApi}/${user}/data/${friend}`,{
     method: 'GET',
   })
 }

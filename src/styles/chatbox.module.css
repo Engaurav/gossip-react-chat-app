@@ -103,7 +103,7 @@
     background: #555; 
   }
 /* scrollbar end */
-.myMessage{
+.recieve{
     background-color: #ea6789;
     align-self: flex-start;
     color: #431d27;
@@ -114,7 +114,7 @@
     border-radius: 5px;
     position: relative;
 }
-.myMessage::after {
+.recieve::after {
     content: "";
     position: absolute;
     bottom: 1px;
@@ -124,7 +124,7 @@
     margin-top: 19px;
     border-color: transparent #ea6789 transparent transparent;
 }
-.recieve{
+.myMessage{
     align-self: flex-end;
     background: #c9db75;
     color: darkslategray;
@@ -133,7 +133,7 @@
     margin: 6px 10px;
     position: relative;
 }
-.recieve::after {
+.myMessage::after {
     content: "";
     position: absolute;
     bottom: 1px;

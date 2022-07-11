@@ -17,6 +17,7 @@ export const useProvideAuth = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [friendRequest , setFriendRequest] = useState(false);
+  const [chat,setChat ] = useState({});
 
   useEffect(() => {
     const userToken = getItemFromLocalStorage(LOCALSTORAGE_TOKEN_KEY);
@@ -27,6 +28,7 @@ export const useProvideAuth = () => {
     }
     setFriendRequest(false);
     setLoading(false);
+
   }, []);
 
   const login = async (email, password) => {
@@ -59,6 +61,9 @@ export const useProvideAuth = () => {
     login,
     logout,
     friendRequest,
-    setFriendRequest
+    setFriendRequest,
+    chat,
+    setChat
+
   };
 };

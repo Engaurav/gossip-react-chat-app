@@ -12,5 +12,6 @@ export const friendRequestShowApi = `${domain}/api/v1/friend/fetch/request`;
 export const friendRequestDeleteApi = `${domain}/api/v1/friend/delete/request`;
 export const friendRequestListsApi = `${domain}/api/v1/friend/show/requests`;
 
+export const friendDetailApi = `${domain}/api/v1/friend/fetch`;
 
 export const  LOCALSTORAGE_TOKEN_KEY = 'gossip'
