@@ -8,22 +8,45 @@ import { useAuth } from '../hooks';
 export default function Friend(props) {
 
   const [name,setName] = useState('Friend');
-  // const [lastMessage,setLastMessage] = useState('No Message');
+  const [ lastMessage , setLastMessage ] = useState('Hii');
   const [chat,setChat] = useState({});
   const auth = useAuth();
 
   const openChat = ()  => {
-    // console.log("Open Chat",chat)
-    auth.setChat(chat);
+      console.log("Clicked",chat)
+      auth.setShowChatBox(false);
+      const fetchFriendDetail = async () => {
+        const friend = props.friend;
+        const response = await handleFechFriendDetail(friend.friend,friend.friend_id);
+        auth.setChat(response);
+      }
+      fetchFriendDetail();
   }
+
+  useEffect(()=>{
+    const fetchFriendDetail = async () => {
+      const friend = props.friend;
+      const response = await handleFechFriendDetail(friend.friend,friend.friend_id);
+      setChat(response);
+      setLastMessage(response.data.friendship.lastMessage);
+    }
+    fetchFriendDetail();
+  },[auth.lastMessage])
+
+
+  useEffect(()=>{
+    console.log("response Friend",chat)
+  },[chat])
+
+
 
   useEffect (()=>{
     const fetchFriendDetail = async () => {
       const friend = props.friend;
       const response = await handleFechFriendDetail(friend.friend,friend.friend_id);
-      // console.log(response);
       setChat(response);
       setName(response.data.friends.name);
+      setLastMessage(response.data.friendship.lastMessage);
     }
     fetchFriendDetail();
   },[props.friend])
@@ -36,8 +59,10 @@ export default function Friend(props) {
             </div>
         </div>
         <div className={style.friendName} onClick={openChat}>
-            {name}
+            <div>{name}</div>
+            <div style={{fontSize:12,marginLeft:5,color:'gray'}}>{lastMessage}</div>
         </div>
+
     </div>
     
   )

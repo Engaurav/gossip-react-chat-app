@@ -10,6 +10,7 @@ export default function FriendRequestUser(props) {
   const user = props.requests.sender;
   const [action,setAction] = useState(true); 
   const [message,setMessage] = useState('');
+
   const acceptFriendRequest = async () =>{
     const response = await handleFriendRequestAccept(props.requests._id);
     if(response.success){
@@ -17,6 +18,7 @@ export default function FriendRequestUser(props) {
         setMessage("Request Accepted")
     }
   }
+  
   const deleteFriendRequest = async () =>{
     const response = await handleFriendDeleteRequest(props.requests._id);
     if(response.success){

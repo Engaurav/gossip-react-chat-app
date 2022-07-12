@@ -14,4 +14,7 @@ export const friendRequestListsApi = `${domain}/api/v1/friend/show/requests`;
 
 export const friendDetailApi = `${domain}/api/v1/friend/fetch`;
 
+// store chat constant
+export const exportChatsApi = `${domain}/api/v1/chats/store`;
+
 export const  LOCALSTORAGE_TOKEN_KEY = 'gossip'

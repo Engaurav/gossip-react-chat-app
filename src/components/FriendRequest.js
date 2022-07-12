@@ -14,6 +14,7 @@ export default function FriendRequest() {
       const friendRequestLists = async () => {
         const response =await handleShowRequestLists(auth.user.id);
         if(response.success){
+          console.log("Friend",response)
           setFriendRequests(response.data.requests);
         }
       }
@@ -29,9 +30,9 @@ export default function FriendRequest() {
       </div>
       <div>
 
-      { friendRequests.map((requests,key)=>{
+      { friendRequests.length > 0 && friendRequests.map((requests,key)=>{
         return <FriendRequestUser requests={requests} key={key}/>
-      })}
+      })} 
 
       { friendRequests.length === 0 && <div className={style.noRequestPending}>No Pending Requests</div>}
 

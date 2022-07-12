@@ -13,14 +13,14 @@ const Chats = () => {
     const [showProfile,setShowProfile] = useState(false);
     const [showSearch,setShowSearch] = useState(false);
     const [showChats,setShowChats] = useState(true);
-    const [showChatBox,setShowChatBox] = useState(true);
-    // const [friend,setFriend] = useState('AKS');
+    const [friend,setFriend] = useState({});
     const auth = useAuth();
 
     useEffect(()=>{
-      setShowChatBox(false);
-      // console.log("USe",auth.chat)
-      setShowChatBox(true);
+
+      console.log("AUTH CHAT",auth.chat)
+      setFriend(auth.chat);
+      auth.setShowChatBox(true);
     },[auth.chat])
 
   
@@ -56,6 +56,7 @@ const Chats = () => {
               <div className={styles.profile_div}>
                 <button onClick={handleProfile}><img src={avatar} alt="Profile" width="40px" ></img></button>
               </div>
+              { auth.user ? <small>Welcome.. {auth.user.name}</small> : ""}
               <div className={styles.addFriend}>
                 <button onClick={handleSearch}><img src="https://cdn-icons-png.flaticon.com/512/2583/2583145.png" alt="Add Friend" width="25px"></img></button>
               </div>
@@ -67,7 +68,7 @@ const Chats = () => {
         { showProfile ? <Profile handleProfileClose = {handleProfile}/> : "" }
         { showSearch ? <SearchFriends handleSearchClose = {handleSearch}/> : ""}  
      </div>
-     { showChatBox ? <Chatbox friend={auth.chat}  /> : "" }
+     { auth.showChatBox ? <Chatbox friend={friend}  /> : <Chatbox friend={{}}/> }
     </>
     )
   }

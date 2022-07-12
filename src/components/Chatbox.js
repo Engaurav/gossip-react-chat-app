@@ -4,6 +4,8 @@ import  io from 'socket.io-client';
 import avatar from "../avatars/avatar-1.jpg";
 import SendMessage from "../smallComponents/SendMessage";
 import RecieveMessage from "../smallComponents/RecieveMessage";
+import { handleExportChats } from "../api";
+import { useAuth } from "../hooks";
 
 
 
@@ -11,58 +13,85 @@ const socket = io.connect("http://localhost:3001")
 
 const Chatbox = (props) => {
 
+  const auth = useAuth();
   const [chats,setChats] = useState([]);
+  const [chatId,setChatId] = useState('');
   const [message,setMessage] = useState('');
   const [recieve,setRecieve] = useState('');
   const [friend,setFriend] =useState('');
   const [name,setName] = useState('GOSSIP APP');
+  const [exportMessage,setExportMessage] = useState('');
 
 
   useEffect(()=>{
-    console.log("Props",props.friend)
+    console.log("Props Chatbox",props)
     
     if(props.friend){
       const {data} = props.friend;
-      console.log("Props",data)
       if(data){
         const { friends,friendship } = data;
-        console.log("Friend",friends);
-        console.log("frienship",friendship);
         setFriend(friendship._id);
-        setName(friends.name);
       }
     }
-    // setName(props.friend.data.friend.name);
   },[props])
 
 
+  useEffect(()=>{
+    console.log("Friend",friend);
+    
+    if(props.friend){
+      const {data} = props.friend;
+      if(data){
+        const { friends,friendship } = data;
+        setName(friends.name);
+        setChats(friendship.chats.message);
+        setChatId(friendship.chats._id);
+      }
+    }
+  },[friend])
+
 
   useEffect(()=>{
-    setChats([{person:"send",message:"Hiii"},{person:"recieve",message:"HEy"},{person:"send",message:"How are You"},{person:"recieve",message:"Fine You?"}])
-  },[]);
-
-
-  const joinFriend = () => {
-    if(friend !==''){
-      socket.emit("join_friend",friend);
-    }
-  };
-  joinFriend();
+    console.log("JOIN Friend")
+    const joinFriend = () => {
+      if(friend !==''){
+        socket.emit("join_friend",friend);
+      }
+    };
+    joinFriend();
+  },[friend])
+  
 
 
   const sendMessageForm = async  (e) => {
     e.preventDefault();
     if(message!==''){
       socket.emit("send_message",{message , friend});
-      setChats([...chats,{person:"send",message:message}])
+      setExportMessage(message);
+      auth.setLastMessage(message);
+      setChats([...chats,{person:auth.user.id,message:message}]);
       setMessage('');
     }
   };
 
 
   useEffect(()=>{
+    if(exportMessage!==''){
+      const exportChats = async () => {
+        const response = await handleExportChats({person:auth.user.id,message:exportMessage},friend);
+        setExportMessage('');
+      }
+      exportChats();
+    }
+  },[exportMessage])
+
+
+
+
+  useEffect(()=>{
     socket.on("recieve_message",(data)=>{
-      setRecieve(data.message)
+      setRecieve(data.message);
+      auth.setLastMessage(data.message);
     });
   },[socket])
 
@@ -72,7 +101,6 @@ const Chatbox = (props) => {
 
   // useEffect for recieve Message
   useEffect(()=>{
-    // console.log("Recieve Message",recieve)
     if(recieve!==''){
       setChats([...chats,{person:"recieve",message:recieve}])
     }
@@ -81,7 +109,6 @@ const Chatbox = (props) => {
 
   // useEffect For Chats
   useEffect(()=>{
-    // console.log("Chats",chats)
     let ul = document.getElementById("ul");
     ul.scrollTop = ul.scrollHeight;
   },[chats])
@@ -125,7 +152,7 @@ const Chatbox = (props) => {
                 <p>{recieve}</p>
               </li> */}
               { chats.length > 0 ? chats.map((value,index)=>{
-                if(value.person==='send'){
+                if(value.person===auth.user.id){
                   return <SendMessage message={value.message} key={index} />
                 }else{
                   return <RecieveMessage message={value.message} key={index} />
@@ -138,6 +165,7 @@ const Chatbox = (props) => {
         </div>
 
         {/* input form container */}
+        { friend !== '' ? 
         <div className={styles.form}>
           <form onSubmit={sendMessageForm}>
             {/* <input placeholder="Message...." name="message" value={message} onChange={(e)=>{setMessage(e.target.value)}} /> */}
@@ -145,7 +173,7 @@ const Chatbox = (props) => {
             <button type="submit"><img src="https://cdn-icons-png.flaticon.com/512/3814/3814305.png" alt="Send" width="25px" /></button>
           </form>
           
-        </div>
+        </div> : <h2 style={{margin:10,textAlign:"end"}}>Chatting Web Application</h2>}
       </div>
     </div>
   );

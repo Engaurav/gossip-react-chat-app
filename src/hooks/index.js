@@ -18,6 +18,9 @@ export const useProvideAuth = () => {
   const [loading, setLoading] = useState(true);
   const [friendRequest , setFriendRequest] = useState(false);
   const [chat,setChat ] = useState({});
+  const [lastMessage,setLastMessage] = useState('');
+  const [showChatBox,setShowChatBox] = useState(true);
+  
 
   useEffect(() => {
     const userToken = getItemFromLocalStorage(LOCALSTORAGE_TOKEN_KEY);
@@ -63,7 +66,10 @@ export const useProvideAuth = () => {
     friendRequest,
     setFriendRequest,
     chat,
-    setChat
-
+    setChat,
+    lastMessage,
+    setLastMessage,
+    showChatBox,
+    setShowChatBox
   };
 };

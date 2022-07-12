@@ -6,6 +6,9 @@ const initialState = {
   login: () => {},
   logout: () => {},
   loading: true,
+  chat: '',
+  lastMessage : '',
+  showChatBox : true
 };
 
 export const AuthContext = createContext(initialState);
