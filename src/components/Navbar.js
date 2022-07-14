@@ -8,10 +8,11 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks";
 
 const Navbar = () => {
-  const auth = useAuth();
-  const [dropdown, setDropdown] = useState(false);
+  const auth = useAuth();                                   //useAuth to manage profile of current user
+  const [dropdown, setDropdown] = useState(false);          //hook to manage dropdown for user profile
   const navigate = useNavigate();
 
+  // function for handling logout
   const handleLogout = () => {
     auth.logout();
     toast.success("Logged Out", {

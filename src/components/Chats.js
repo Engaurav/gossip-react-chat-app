@@ -10,15 +10,15 @@ import { useAuth } from "../hooks";
 
 const Chats = () => {
 
-    const [showProfile,setShowProfile] = useState(false);
-    const [showSearch,setShowSearch] = useState(false);
-    const [showChats,setShowChats] = useState(true);
-    const [friend,setFriend] = useState({});
+    const [showProfile,setShowProfile] = useState(false);     //hook to manage view profile 
+    const [showSearch,setShowSearch] = useState(false);       //hook to manage view search 
+    const [showChats,setShowChats] = useState(true);          //hook to manage Chats of a new freind 
+    const [friend,setFriend] = useState({});                  //hooks for sending friends data such as name and chats of friend
     const auth = useAuth();
 
-    useEffect(()=>{
 
-      console.log("AUTH CHAT",auth.chat)
+    // useEffect to setup new chats for current friend clicked
+    useEffect(()=>{
       setFriend(auth.chat);
       auth.setShowChatBox(true);
     },[auth.chat])
@@ -35,6 +35,8 @@ const Chats = () => {
         setShowProfile(true);
       }
     }
+
+    // handle search section
     const handleSearch = () => {
       if(showSearch){
         setShowChats(true);
@@ -65,9 +67,15 @@ const Chats = () => {
           </>
         : "" }
 
+        {/* handle show Proile components  */}
         { showProfile ? <Profile handleProfileClose = {handleProfile}/> : "" }
+
+        {/* handle show Search Friends components  */}
         { showSearch ? <SearchFriends handleSearchClose = {handleSearch}/> : ""}  
+
      </div>
+
+     {/* Chatbox according to friend clicked */}
      { auth.showChatBox ? <Chatbox friend={friend}  /> : <Chatbox friend={{}}/> }
     </>
     )

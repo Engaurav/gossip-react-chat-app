@@ -5,6 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { userRegister } from "../api";
 import { useAuth } from "../hooks";
+import styles from '../styles/auth.module.css'
+import image from '../avatars/auth.jpg'
+import { Link } from 'react-router-dom';
+
+
 
 
 const Register = () =>  {
@@ -46,31 +51,43 @@ const Register = () =>  {
   }
 
     return (
-      <div>
-        <div>
-            <div>
-                <form onSubmit={hanfleRegisterForm}>
-                    <div>
-                        <label>Name</label>
-                        <input type='text' name="name" placeholder="Enter Name..." value={name} onChange={(e)=>{return setName(e.target.value)}} required />
-                    </div>
-                    <div>
-                        <label>Email</label>
-                        <input type='email' name="email" placeholder="Enter Email..." value={email} onChange={(e)=>{return setEmail(e.target.value)}} required />
-                    </div>
-                    <div>
-                        <label>Password</label>
-                        <input type='password' name="password" placeholder="Enter Password..." value={password} onChange={(e)=>{return setPassword(e.target.value)}} required />
-                    </div>
-                    <div>
-                        <label>Confirm Password</label>
-                        <input type='password' name="confirm_password" placeholder="Enter Confirm Password..." value={confirm_password} onChange={(e)=>{return setConfirmPassword(e.target.value)}} required />
-                    </div>
-                    <div>
-                        <input type='submit' value="Register" disabled={signing}/>
-                    </div>
-                </form>
-            </div>
+      <div className={styles.authContainer}>
+        <div className={styles.imageContainer}>
+          <div>
+            <img src={image} alt="authImage" />
+          </div>
+        </div>
+        <div className={styles.formContainer}>
+          <h2>Please Sign Up </h2>
+          <form onSubmit={hanfleRegisterForm}>
+              <div>
+                  <label>Name</label>
+                  <input type='text' name="name" placeholder="Enter Name..." value={name} onChange={(e)=>{return setName(e.target.value)}} required />
+              </div>
+              <div>
+                  <label>Email</label>
+                  <input type='email' name="email" placeholder="Enter Email..." value={email} onChange={(e)=>{return setEmail(e.target.value)}} required />
+              </div>
+              <div>
+                  <label>Password</label>
+                  <input type='password' name="password" placeholder="Enter Password..." value={password} onChange={(e)=>{return setPassword(e.target.value)}} required />
+              </div>
+              <div>
+                  <label>Confirm Password</label>
+                  <input type='password' name="confirm_password" placeholder="Enter Confirm Password..." value={confirm_password} onChange={(e)=>{return setConfirmPassword(e.target.value)}} required />
+              </div>
+              <div>
+                  {signing ? (
+                    <input type="submit" value="Registering" disabled />
+                  ) : (
+                    <button type="submit" >Register</button>
+                  )}
+              </div>
+          </form>
+          <div className={styles.Link}>
+              <div> Already have acoount</div>
+              <div> <Link to="/login">Login Here</Link></div>
+          </div>
         </div>
       </div>
     )

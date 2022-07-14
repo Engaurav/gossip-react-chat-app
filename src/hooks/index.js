@@ -15,6 +15,7 @@ export const useAuth = () => {
 
 export const useProvideAuth = () => {
   const [user, setUser] = useState(null);
+  const [currentFriend,setCurrentFriend] = useState('Gossip');
   const [loading, setLoading] = useState(true);
   const [friendRequest , setFriendRequest] = useState(false);
   const [chat,setChat ] = useState({});
@@ -36,14 +37,12 @@ export const useProvideAuth = () => {
 
   const login = async (email, password) => {
     const response = await userLogin(email, password);
-    // console.log(true);
     if (response.success) {
       setItemInLocalStorage(LOCALSTORAGE_TOKEN_KEY, response.data.token);
       var user = jwt_decode(response.data.token);
       setUser({
         id: user.id,
-        name: user.name,
-        email: user.email,
+        name: user.name
       });
       setLoading(false);
       return response;
@@ -70,6 +69,8 @@ export const useProvideAuth = () => {
     lastMessage,
     setLastMessage,
     showChatBox,
-    setShowChatBox
+    setShowChatBox,
+    currentFriend,
+    setCurrentFriend
   };
 };

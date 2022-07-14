@@ -7,14 +7,16 @@ import { handleShowRequestLists } from '../api';
 
 export default function FriendRequest() {
   const auth = useAuth();
-  const [friendRequests,setFriendRequests] = useState([]);
+  const [friendRequests,setFriendRequests] = useState([]);        //hooks to get all friend request of current user
 
+
+
+  // useEffect for fetching friendlist from API
   useEffect(()=>{
     if(auth.user){
       const friendRequestLists = async () => {
         const response =await handleShowRequestLists(auth.user.id);
         if(response.success){
-          console.log("Friend",response)
           setFriendRequests(response.data.requests);
         }
       }
@@ -22,6 +24,8 @@ export default function FriendRequest() {
     }
   },[auth])
   
+
+
   return (
     <div style={auth.friendRequest ? innerStyle : {}} className={style.friendReqContainer}>
       <div className={style.FriendRequestBar}>
@@ -30,12 +34,13 @@ export default function FriendRequest() {
       </div>
       <div>
 
+      {/* if friend requests  */}
       { friendRequests.length > 0 && friendRequests.map((requests,key)=>{
         return <FriendRequestUser requests={requests} key={key}/>
       })} 
 
+      {/* if no friend requests  */}
       { friendRequests.length === 0 && <div className={style.noRequestPending}>No Pending Requests</div>}
-
       </div>
     </div>
   )

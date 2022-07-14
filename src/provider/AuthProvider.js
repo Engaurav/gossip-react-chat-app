@@ -8,7 +8,8 @@ const initialState = {
   loading: true,
   chat: '',
   lastMessage : '',
-  showChatBox : true
+  showChatBox : true,
+  currentFriend : 'Gossip'
 };
 
 export const AuthContext = createContext(initialState);

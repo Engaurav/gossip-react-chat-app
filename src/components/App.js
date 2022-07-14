@@ -13,15 +13,16 @@ const App = ()=>{
     
     return (
       <div className="App">
+        {/* router for handling diffrent routes */}
         <Router>
           <Navbar />
-          
           <Routes>
             <Route exact path="/" element={<ChatContainer/>}/>
             <Route exact path="/login" element={ <Login /> } />
             <Route exact path="/register" element ={<Register /> }/>
           </Routes>
         </Router>
+        {/* for enabling notification */}
         <ToastContainer
           position="top-right"
           autoClose={1500}

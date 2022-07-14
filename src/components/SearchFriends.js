@@ -6,13 +6,17 @@ import SearchList from "./SearchList";
 
 
 export default function SearchFriends(props) {
-  const auth = useAuth();
-  const [search, setSearch] = useState("");
-  const [searchList,setSearchList] = useState([]);
+  const auth = useAuth();                             //auth to fetch current user
+  const [search, setSearch] = useState("");           //hooks for getting search value
+  const [searchList,setSearchList] = useState([]);     //hooks for setting search fetch results
+
+  // function to handle search input 
   const handleSearchFriend = async () => {
     const response = await searchFriends(search);
     setSearchList(response.data.users);
   };
+
+
   return (
     <div className={style.SearchFriend}>
       <div id={style.search_bar}>
@@ -42,6 +46,7 @@ export default function SearchFriends(props) {
         if(user._id === auth.user.id){
           return "";
         }
+        // sending all the search lists
         return <SearchList user={user} key = {key} />
       }) : <div className={style.noResult}>No Result.</div>}
     </div>

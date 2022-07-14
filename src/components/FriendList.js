@@ -5,7 +5,9 @@ import { handleFetchFriendsLists } from '../api';
 
 export default function FriendList() {
   const auth = useAuth();
-  const [friends,setFriends] = useState([]);
+  const [friends,setFriends] = useState([]);      //hooks to get all friends of current user
+
+  // fetching all the friends of current user
   useEffect(()=>{
     const fetchFriendList = async () =>{
       const response = await handleFetchFriendsLists(auth.user.id);
@@ -17,7 +19,10 @@ export default function FriendList() {
       fetchFriendList();
     }
   },[auth])
+
+
   return (
+    // calling all friends mapping over friendlists
     <div>
         { friends.map((friend,key)=>{
           return  <Friend friend={friend} key={key} />;

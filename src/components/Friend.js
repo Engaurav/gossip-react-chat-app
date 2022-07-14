@@ -7,13 +7,15 @@ import { useAuth } from '../hooks';
 
 export default function Friend(props) {
 
-  const [name,setName] = useState('Friend');
-  const [ lastMessage , setLastMessage ] = useState('Hii');
-  const [chat,setChat] = useState({});
+  const [name,setName] = useState('');                      //hook to manage friend name
+  const [ lastMessage , setLastMessage ] = useState('Fetching Chats');   //hook to manage last message for current frind
+  const [chat,setChat] = useState({});                    //hook to manage chat of each friend
   const auth = useAuth();
 
+
+  // function to manage clicked of this friend
   const openChat = ()  => {
-      console.log("Clicked",chat)
+      auth.setCurrentFriend(name)
       auth.setShowChatBox(false);
       const fetchFriendDetail = async () => {
         const friend = props.friend;
@@ -23,6 +25,8 @@ export default function Friend(props) {
       fetchFriendDetail();
   }
 
+
+  // use effect to setup last message of current friend
   useEffect(()=>{
     const fetchFriendDetail = async () => {
       const friend = props.friend;
@@ -34,12 +38,7 @@ export default function Friend(props) {
   },[auth.lastMessage])
 
 
-  useEffect(()=>{
-    console.log("response Friend",chat)
-  },[chat])
-
-
-
+  // use effect to fetch friend detail from props and api when friend data first time load
   useEffect (()=>{
     const fetchFriendDetail = async () => {
       const friend = props.friend;
@@ -50,8 +49,14 @@ export default function Friend(props) {
     }
     fetchFriendDetail();
   },[props.friend])
+
+
   
   return (
+    <>
+    
+    {/* Loader till friend detail not fetched  */}
+    { name === '' ? <div style={{height:70}}><div className="loader"></div></div> : 
     <div className={style.friendContainer}>
         <div className={style.friendImageContainer}>
             <div className={style.friendImage}>
@@ -62,8 +67,8 @@ export default function Friend(props) {
             <div>{name}</div>
             <div style={{fontSize:12,marginLeft:5,color:'gray'}}>{lastMessage}</div>
         </div>
-
-    </div>
+    </div> }
+    </> 
     
   )
 }

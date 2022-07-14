@@ -12,6 +12,7 @@ export default function SearchList(props) {
 
  
 
+  // useEffect to find Friendship status of search user
   useEffect(()=>{
     const fetchFriendship = async ()=>{
       const body = {
@@ -28,6 +29,8 @@ export default function SearchList(props) {
     
   },[frienship,auth.user.id,props.user._id])
 
+
+  // function to handle sending friend requests
   const handleSendRequest = async () => {
     const body = await {
       sender : auth.user.id,
@@ -40,6 +43,8 @@ export default function SearchList(props) {
     }
   }
 
+
+  // function for deleting requests
   const deletingRequest = async () => {
     const response = await handleFriendDeleteRequest(id);
     if(response.success){

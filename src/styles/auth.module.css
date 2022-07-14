@@ -1,0 +1,54 @@
+.authContainer{
+    display: flex;
+    justify-content: space-around;
+}
+.imageContainer div{
+    margin: 50px;
+    border: solid #0e0d37 10px;
+}
+.imageContainer img{
+    width: 100%;
+    max-width: 500px;
+}
+.formContainer{
+    margin: 50px;
+    padding: 20px;
+}
+.formContainer form div{
+    display: flex;
+    flex-direction: column;
+    margin: 18px 0px;
+}
+.formContainer form div input{
+    width: 274px;
+    height: 25px;
+}
+.formContainer form div label{
+    font-size: x-large;
+}
+.formContainer form div button{
+    font-size: larger;
+    background: #f45503;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+    padding: 5px;
+}
+.formContainer form div button:hover{
+    background: #2a445d;
+}
+.Link{
+    display: flex;
+    margin-top: 5px;
+    justify-content: space-between;
+}
+.Link div a{
+    color: #f45503;
+}
+@media only screen and (max-width: 600px) {
+    .authContainer{
+        flex-direction: column;
+    }
+}

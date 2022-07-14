@@ -5,6 +5,8 @@ import { useAuth } from "../hooks";
 
 const Profile = (props) => {
   const auth = useAuth();
+
+  // setting up profile for current user
   return (
   <div className={style.Profile}>
     <div id={style.profile_bar}>

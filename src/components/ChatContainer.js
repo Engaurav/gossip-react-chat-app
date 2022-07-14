@@ -15,7 +15,9 @@ const ChatContainer = () => {
 
     return (
       <div className={styles.ChatContainer}>
+        {/* chatContainer */}
         <Chats />
+        {/* friends requests container */}
         <FriendRequest/>
       </div>
     );
