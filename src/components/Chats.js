@@ -56,9 +56,9 @@ const Chats = () => {
           <>
             <div className={styles.profile_container}>
               <div className={styles.profile_div}>
-                <button onClick={handleProfile}><img src={avatar} alt="Profile" width="40px" ></img></button>
+                <button onClick={handleProfile}><img src={avatar} alt="Profile" width="55px" ></img></button>
               </div>
-              { auth.user ? <small>Welcome.. {auth.user.name}</small> : ""}
+              
               <div className={styles.addFriend}>
                 <button onClick={handleSearch}><img src="https://cdn-icons-png.flaticon.com/512/2583/2583145.png" alt="Add Friend" width="25px"></img></button>
               </div>

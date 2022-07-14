@@ -7,6 +7,8 @@ import RecieveMessage from "../smallComponents/RecieveMessage";
 import { handleExportChats } from "../api";
 import { useAuth } from "../hooks";
 import '../styles/chatbox.css'
+import '../styles/gossip.css'
+import Inbox from "../smallComponents/Inbox";
 
 
 // socket io server links
@@ -136,7 +138,21 @@ const Chatbox = (props) => {
           </div>}
           {/* other detail */}
           <div className={styles.detail}>
-            <h2>{auth.currentFriend}</h2>
+          { auth.currentFriend === 'Gossip'  ? 
+            <div className="goosip">
+              { auth.currentFriend === 'Gossip' &&  <Inbox/>}
+
+              <h1>
+                <span>Chat With</span>
+                <div className="message">
+                  <div className="word1">Family</div>
+                  <div className="word2">World</div>
+                  <div className="word3">Friends</div>
+                </div>
+              </h1>
+            </div>
+            :
+            <h2>{auth.currentFriend}</h2>}
             {/* <button><img src="https://cdn-icons-png.flaticon.com/512/225/225287.png" alt="dropdown" width="25px" /></button> */}
           </div>
         </div>

@@ -17,17 +17,21 @@
 
 .profile_div{
     border-radius: 50%;
-    overflow: auto;
+    height: 50px;
     border: solid #fcd899;
     margin: 5px;
     margin-left: 9px;
+    width: 50px;
+    overflow: hidden;
 }
 .profile_container div button{
     background: none;
     border: none;
+    margin: -7px -9px;
     cursor: pointer;
 }
 
 .addFriend{
-    margin-top: 16px;
+    margin-top: 20px;
+    margin-right: 6px;
 }

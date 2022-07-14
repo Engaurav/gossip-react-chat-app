@@ -22,10 +22,11 @@
     height: 50px;
     overflow: hidden;
     margin-left: 19px;
-    width: 50px;
+    width: 56px;
 }
 .image img{
-    width: 55px;
+    width: 58px;
+    margin: -4px;
 }
 .detail{
     display: flex;
@@ -165,14 +166,14 @@
     margin-top: 7px;
 }
 
-.form form input{
-    width: 100%;
-    margin-left: 5px;
+.form form textarea{
+    width: -webkit-fill-available;
+    margin: 0 12px;
 }
 .form form button{
     background: none;
     border: none;
-    margin: 0 5px;
+    margin-right: 10px;
     height: 36px;
     border-radius: 50%;
     width: 36px;
